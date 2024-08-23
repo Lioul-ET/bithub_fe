@@ -23,4 +23,4 @@ jobs:
       - run: npm i
       - run: npm install react-icons
       - run: npm run build
-      - run: pm2 restart port
+      - run: pm2 restart port -p 3008
