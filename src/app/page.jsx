@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import localFont from "next/font/local";
 import { IoLogoGithub } from "react-icons/io5";
@@ -19,6 +20,9 @@ import Image from "next/image";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { EnvelopeOpenIcon } from "@radix-ui/react-icons";
+import { useEffect, useState } from "react";
+import { CiMenuBurger } from "react-icons/ci";
+import { IoCloseOutline } from "react-icons/io5";
 
 const Testomies = [
   {
@@ -59,47 +63,122 @@ const Testomies = [
 ];
 
 export default function Home() {
+  const [isFixed, setIsFixed] = useState(false);
+  const [isMobileMenu, setIsMobileMenu] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsFixed(true);
+      } else {
+        setIsFixed(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <main className="flex min-h-screen flex-col bg-[#05060f]">
       <div className="w-[100%]">
-        <div className="w-[100%] h-16 flex flex-row  gap-2  items-center border-b-2 border-[#3f3f3f]">
+        <div
+          className={`${
+            isFixed ? "fixed top-0 left-0 w-full z-50 bg-[#12141E]" : "relative"
+          } w-[100%] h-16 flex flex-row  gap-2  items-center border-b-1 border-[#3b425f]`}
+        >
           {/* Logo */}
           <div className="w-[30%] ">
             <h3
-              className={`${VT323.className} ml-3 text-[#fff] font-bold md:text-6xl text-4xl`}
+              className={`${VT323.className} ml-3 text-[#fff] font-bold md:text-6xl text-4xl logoText`}
             >
               BITS HUB
             </h3>
           </div>
           {/* Navigations */}
-          <div className="w-[40%]  lg:block hidden">
+          <div
+            className={` ${
+              isMobileMenu ? "flex" : "hidden"
+            } md:w-[70%]  md:flex md:relative absolute md:mt-0 mt-28  w-[100%] md:p-0 p-2 md:bg-transparent bg-[#101010]  bg-opacity-95`}
+          >
             {/* Button 1 */}
-            <div className="flex gap-4 justify-end">
-              <Button variant="outline" className={`${Montserrat.className} `}>
+            <div className="flex md:gap-4  gap-7 w-[100%] md:overflow-auto overflow-scroll md:pb-0 pb-2 md:justify-end scrollbar-hide">
+              <Button
+                onClick={() =>
+                  document
+                    .getElementById("home")
+                    .scrollIntoView({ behavior: "smooth" })
+                }
+                variant="outline"
+                className={`${Montserrat.className} `}
+              >
                 Home
               </Button>
-              <Button variant="outline" className={`${Montserrat.className} `}>
-                About
+              <Button
+                onClick={() =>
+                  document
+                    .getElementById("services")
+                    .scrollIntoView({ behavior: "smooth" })
+                }
+                variant="outline"
+                className={`${Montserrat.className} `}
+              >
+                Services
               </Button>
-              <Button variant="outline" className={`${Montserrat.className} `}>
+              <Button
+                onClick={() =>
+                  document
+                    .getElementById("projects")
+                    .scrollIntoView({ behavior: "smooth" })
+                }
+                variant="outline"
+                className={`${Montserrat.className} `}
+              >
+                Projects
+              </Button>
+              <Button
+                onClick={() =>
+                  document
+                    .getElementById("testimonial")
+                    .scrollIntoView({ behavior: "smooth" })
+                }
+                variant="outline"
+                className={`${Montserrat.className} `}
+              >
+                Testimonials
+              </Button>
+              <Button
+                onClick={() =>
+                  document
+                    .getElementById("contact")
+                    .scrollIntoView({ behavior: "smooth" })
+                }
+                variant="outline"
+                className={`${Montserrat.className} mr-8`}
+              >
                 Contact
               </Button>
             </div>
           </div>
-          {/* Nav-Buttons */}
-          <div className="md:w-[30%] w-[60%] flex justify-end">
+          <div className="md:hidden w-[60%] flex justify-end">
             <Button
+              onClick={() => setIsMobileMenu(isMobileMenu ? false : true)}
               variant="outline"
-              className={`${Montserrat.className} hover:bg-transparent mr-2`}
+              className={`${Montserrat.className} hover:bg-[#554646]`}
             >
-              Github
-              <IoLogoGithub size={24} color="#fff" className="ml-2 -mt-1 " />
+              {isMobileMenu ? (
+                <IoCloseOutline size={20} color="#fff" />
+              ) : (
+                <CiMenuBurger size={20} color="#fff" />
+              )}
             </Button>
           </div>
+          {/* Nav-Buttons */}
         </div>
-        <div className="w-[100%] flex flex-col items-center ">
-          <div className="flex md:w-[90%] w-[99%] md:border-l-2 md:border-[#313238] md:border-r-2 justify-center">
-            <div className="md:w-[90%] w-[98%] flex flex-col items-center md:border-l-2 md:border-[#313238] md:border-r-2 p-2">
+        <div id="home" className="w-[100%] flex flex-col items-center ">
+          <div className="flex md:w-[90%] w-[99%] md:border-l-1 md:border-[#3b425f] md:border-r-1 justify-center">
+            <div className="md:w-[90%] w-[98%] flex flex-col items-center md:border-l-1 md:border-[#3b425f] md:border-r-1 p-2">
               <img
                 src="/BitsHubImgs/Rectangle 782.png"
                 width={420}
@@ -129,7 +208,7 @@ export default function Home() {
           </div>
         </div>
         {/* Codes Logos */}
-        <div className="w-[100%] flex justify-center">
+        <div id="services" className="w-[100%] flex justify-center">
           <div className="md:w-[70%] w-[95%]  flex flex-row justify-between mt-10 p-4 gap-5">
             <FaReact size={60} color="#424147" />
             <SiNextdotjs size={60} color="#424147" />
@@ -147,72 +226,10 @@ export default function Home() {
           </h3>
 
           {/* First Section Card */}
-          <div className="w-[100%] md:flex p-4">
-            <div className="md:w-[50%] w-[100%]  ">
+          <div className="w-[100%] md:flex p-4 md:gap-10">
+            <div className="md:w-[40%] border-[#3b425f] rounded-xl h-96 w-[100%] border-1 md:ml-[5%]">
               <Image
-                src="/BitsHubImgs/image 2.png"
-                width={580}
-                height={420}
-                className="md:h-auto h-84"
-              />
-              <Image
-                src="/BitsHubImgs/CpuWithProgrammingLanguage.png"
-                width={360}
-                height={420}
-                className="md:-mt-80 -mt-82  md:ml-24 ml-4"
-              />
-              <div className="md:w-[88%] w-[100%] mt-3 flex justify-center">
-                <div className="md:w-[95%] w-[98%] bg-[#121420] md:mt-2 md:h-24 h-36 rounded-xl">
-                  <h3
-                    className={`${Montserrat.className} text-[#fff] font-semibold shadow-lg p-2  text-xl `}
-                  >
-                    Working with powerfull programming languages{" "}
-                  </h3>
-                  <p
-                    className={`${Montserrat.className} text-[#e3e3e3] shadow-lg p-5 -mt-5 `}
-                  >
-                    Through our green committed Data Center partners, We provide
-                    Sustainable
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="md:w-[50%] w-[100%] md:mt-0 mt-5 ">
-              <Image
-                src="/BitsHubImgs/image 2.png"
-                width={580}
-                height={420}
-                className="md:h-auto h-84"
-              />
-              <Image
-                src="/BitsHubImgs/Frame1.png"
-                width={360}
-                height={420}
-                className="md:-mt-80 -mt-82  md:ml-24 ml-4"
-              />
-              <div className="md:w-[88%] w-[100%] mt-12 flex justify-center">
-                <div className="md:w-[95%] w-[98%] bg-[#121420] md:mt-2 mt-1 md:h-24 h-36 rounded-xl">
-                  <h3
-                    className={`${Montserrat.className} text-[#fff] font-semibold shadow-lg p-2  text-xl `}
-                  >
-                    Making you page beauty
-                  </h3>
-                  <p
-                    className={`${Montserrat.className} text-[#e3e3e3] shadow-lg p-5 -mt-5 `}
-                  >
-                    Through our green committed Data Center partners, We provide
-                    Sustainable
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          {/* Second Section Card  */}
-          <div className="w-[100%] md:flex p-4 md:gap-5">
-            <div className="md:w-[30%] border-[#3b425f] rounded-xl h-96 w-[100%] border-1 ">
-              <Image
-                src="/BitsHubImgs/SecurityCardImgLight.png"
+                src="/BitsHubImgs/Group 481830.png"
                 width={260}
                 height={420}
                 className="ml-16 mt-2"
@@ -222,13 +239,62 @@ export default function Home() {
                   <h3
                     className={`${Montserrat.className} text-[#fff] font-semibold shadow-lg p-2  text-xl `}
                   >
-                    Giving you best Security
+                    CONSULTING
                   </h3>
                   <p
                     className={`${Montserrat.className} text-[#e3e3e3] shadow-lg p-5 -mt-5 `}
                   >
-                    Through our green committed Data Center partners, We provide
-                    Sustainable
+                    Rely on BitsHub as your trusted advisors.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="md:w-[40%] border-[#3b425f] rounded-xl h-96 w-[100%] border-1 md:mt-0 mt-7">
+              <Image
+                src="/BitsHubImgs/Group.png"
+                width={260}
+                height={420}
+                className="ml-16 mt-2"
+              />
+              <div className="md:w-[98%] w-[100%] mt-1 flex justify-center">
+                <div className="md:w-[95%] w-[99%] bg-[#121420] md:mt-1 mt-2 md:h-24 h-24 rounded-xl">
+                  <h3
+                    className={`${Montserrat.className} text-[#fff] font-semibold shadow-lg p-2  text-xl `}
+                  >
+                    Mobile Apps
+                  </h3>
+                  <p
+                    className={`${Montserrat.className} text-[#e3e3e3] shadow-lg p-5 -mt-5 `}
+                  >
+                    Elevate your bussiness online presence with captive mobile
+                    application.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* Second Section Card  */}
+          <div className="w-[100%] md:flex p-4 md:gap-5">
+            <div className="md:w-[30%] border-[#3b425f] rounded-xl h-96 w-[100%] border-1 ">
+              <Image
+                src="/BitsHubImgs/OBJECTS.svg"
+                width={260}
+                height={420}
+                className="ml-16 mt-2"
+              />
+              <div className="md:w-[98%] w-[100%] mt-1 flex justify-center">
+                <div className="md:w-[95%] w-[99%] bg-[#121420] md:mt-1 mt-2 md:h-24 h-24 rounded-xl">
+                  <h3
+                    className={`${Montserrat.className} text-[#fff] font-semibold shadow-lg p-2  text-xl `}
+                  >
+                    Data Analytics
+                  </h3>
+                  <p
+                    className={`${Montserrat.className} text-[#e3e3e3] shadow-lg p-5 -mt-5 `}
+                  >
+                    Unlock the potential of your data with our comprehensive
+                    analytical services
                   </p>
                 </div>
               </div>
@@ -278,8 +344,8 @@ export default function Home() {
             </div>
             <div className="md:w-[30%] md:mt-0 mt-7 border-[#3b425f] rounded-xl h-96 w-[100%] border-1 ">
               <Image
-                src="/BitsHubImgs/CardLayoutWebTamplete.png"
-                width={237}
+                src="/BitsHubImgs/OBJCTS.svg"
+                width={197}
                 height={370}
                 className="ml-16 mt-2"
               />
@@ -288,13 +354,12 @@ export default function Home() {
                   <h3
                     className={`${Montserrat.className} text-[#fff] font-semibold shadow-lg p-2  text-xl `}
                   >
-                    Giving you best Security
+                    Website And Digital Marketing
                   </h3>
                   <p
                     className={`${Montserrat.className} text-[#e3e3e3] shadow-lg p-5 -mt-5 `}
                   >
-                    Through our green committed Data Center partners, We provide
-                    Sustainable
+                    Crafts a compelling online presense with Bitshub.
                   </p>
                 </div>
               </div>
@@ -302,11 +367,14 @@ export default function Home() {
           </div>
         </div>
         {/* Projects */}
-        <div className="w-[100%] flex flex-col items-center mt-8 ">
+        <div
+          id="projects"
+          className="w-[100%] flex flex-col items-center mt-20 "
+        >
           <h3
             className={`${Montserrat.className} font-semibold text-[#fff] shadow-md text-4xl ml-2`}
           >
-            MAKING YOUR PAGE BEAUTY
+            Our Projects
           </h3>
           <Image
             src="/BitsHubImgs/Frame6.png"
@@ -536,7 +604,10 @@ export default function Home() {
           </div>
         </div>
         {/*Testmonials  */}
-        <div className="w-[100%] mt-16 flex items-center flex-col">
+        <div
+          id="testimonial"
+          className="w-[100%] mt-16 flex items-center flex-col"
+        >
           <h3
             className={`${Montserrat.className} font-semibold text-[#fff]  text-4xl `}
           >
@@ -601,7 +672,7 @@ export default function Home() {
           </Carousel>
         </div>
         {/* Contacts */}
-        <div className="w-[100%] flex justify-center mt-14">
+        <div id="contact" className="w-[100%] flex justify-center mt-14">
           <div className="w-[90%] md:flex md:flex-row  border-[#3b425f] border-1 p-2 rounded-xl">
             <div className="md:w-[30%] mt-8 ml-3">
               <h3
@@ -641,7 +712,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="w-[100%] h-36"></div>
+        <div className="w-[100%] h-5"></div>
       </div>
     </main>
   );

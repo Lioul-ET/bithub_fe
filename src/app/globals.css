@@ -67,6 +67,9 @@
     @apply bg-background text-foreground;
   }
 }
+.logoText {
+  text-shadow: #fff;
+}
 .h-84 {
   height: 24rem;
 }
@@ -79,8 +82,30 @@
 .border-1 {
   border-width: 1px;
 }
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
 .border-l-1 {
   border-left-width: 1px;
+}
+.border-r-1 {
+  border-right-width: 1px;
+}
+.border-b-1 {
+  border-bottom-width: 1px;
+}
+@media (min-width: 768px) {
+  .md\:border-l-1 {
+    border-left-width: 1px;
+  }
+  .md\:border-r-1 {
+    border-right-width: 1px;
+  }
 }
 .h-98 {
   height: 28rem;
