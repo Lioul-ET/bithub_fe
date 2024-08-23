@@ -299,45 +299,25 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="md:w-[30%] md:mt-0 mt-8 border-[#3b425f] rounded-xl h-96 w-[100%] border-1 ">
-              <div className="flex flex-row w-[100%]">
-                <Image
-                  src="/BitsHubImgs/GrowthRateImg.png"
-                  width={260}
-                  height={120}
-                  className="border-1 border-[#3b425f] mt-2 ml-2 rounded-2xl"
-                />
-                <div className="flex flex-row border-1 border-[#3b425f] h-8 w-check rounded-lg -ml-44 mt-4 items-center justify-center">
-                  <Image
-                    src="/BitsHubImgs/Frame4.png"
-                    width={60}
-                    height={60}
-                    className="w-6 h-6 ml-3"
-                  />
-                  <h3 className={`${Montserrat.className} text-[#fff] ml-2`}>
-                    Users
-                  </h3>
-                  <div className="w-64"></div>
-                </div>
-                <Image
-                  src="/BitsHubImgs/Frame2.png"
-                  width={260}
-                  height={420}
-                  className="md:ml-12 ml-14"
-                />
-              </div>
-              <div className="md:w-[98%] w-[100%] md:mt-2 mt-6 flex justify-center">
-                <div className="md:w-[95%] w-[99%] bg-[#121420] md:mt-1 mt-7 md:h-24 h-24 rounded-xl">
+            <div className="md:w-[30%] border-[#3b425f] rounded-xl h-96 w-[100%] border-1 md:mt-0 mt-7">
+              <Image
+                src="/BitsHubImgs/ai.jpg"
+                width={207}
+                height={420}
+                className="ml-16 mt-2 rounded-2xl"
+              />
+              <div className="md:w-[98%] w-[100%] mt-1 flex justify-center">
+                <div className="md:w-[95%] w-[99%] bg-[#121420] md:mt-1 mt-2 md:h-24 h-24 rounded-xl">
                   <h3
                     className={`${Montserrat.className} text-[#fff] font-semibold shadow-lg p-2  text-xl `}
                   >
-                    Giving you best Security
+                    Ai and Machine Learning
                   </h3>
                   <p
                     className={`${Montserrat.className} text-[#e3e3e3] shadow-lg p-5 -mt-5 `}
                   >
-                    Through our green committed Data Center partners, We provide
-                    Sustainable
+                    Harness the power of Artifical intelligence and machine
+                    learning.
                   </p>
                 </div>
               </div>
