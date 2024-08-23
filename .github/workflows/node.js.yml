@@ -22,4 +22,5 @@ jobs:
           cache: "npm"
       - run: npm i
       - run: npm install react-icons
+      - run: npm build
       - run: pm2 restart index.js
