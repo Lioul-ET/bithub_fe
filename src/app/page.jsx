@@ -486,6 +486,7 @@ export default function Home() {
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   referrerpolicy="strict-origin-when-cross-origin"
                   allowfullscreen
+                  className="md:w-[85%] w-[100%]"
                 ></iframe>
               </div>
             </div>
