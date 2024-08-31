@@ -195,7 +195,8 @@ export default function Home() {
                 <h3
                   className={`${Montserrat.className} text-[#fff] md:text-6xl text-4xl -mt-20 w-[90%] absolute left-1/2 transform -translate-x-1/2 text-center`}
                 >
-                  The right font can do a lot for your design portfolio
+                  Empowering Innovation through AI, Data Analysis, and
+                  Cutting-Edge Website Design
                 </h3>
               </div>
               <img
@@ -459,7 +460,7 @@ export default function Home() {
                 <h3
                   className={`${Montserrat.className} font-semibold text-[#fff] ml-2 mt-1 `}
                 >
-                  Data Visualization
+                  Data Analysis
                 </h3>
               </div>
             </div>
@@ -468,7 +469,7 @@ export default function Home() {
                 <h3
                   className={`${Montserrat.className} font-semibold text-[#fff] ml-2 mt-1 text-4xl md:ml-7`}
                 >
-                  Data Visualization
+                  Data Analysis
                 </h3>
                 <p
                   className={`${Montserrat.className} font-semibold text-[#3f3f3f] ml-2 mt-1 text-xl md:ml-12`}
@@ -480,13 +481,12 @@ export default function Home() {
                 <iframe
                   width="560"
                   height="315"
-                  src="https://www.youtube.com/embed/tZMq9aauqVk?si=PKgX-M-_j8JUBjx4"
+                  src="https://www.youtube.com/embed/FRHcbjDx4Z4?si=Tmts43-97_QN5Fkr"
                   title="YouTube video player"
                   frameborder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   referrerpolicy="strict-origin-when-cross-origin"
                   allowfullscreen
-                  className="md:w-[85%] w-[100%]"
                 ></iframe>
               </div>
             </div>
@@ -661,7 +661,7 @@ export default function Home() {
                 Contact Us Via Email
               </h3>
               <p className={`${Montserrat.className} text-[#fff] mt-5`}>
-                You contact us using our email bitshub21@gmail.com
+                You contact us using our email bitshub2022@gmail.com
               </p>
               <div className="h-16 w-[100%]"></div>
             </div>
