@@ -195,8 +195,7 @@ export default function Home() {
                 <h3
                   className={`${Montserrat.className} text-[#fff] md:text-6xl text-4xl -mt-20 w-[90%] absolute left-1/2 transform -translate-x-1/2 text-center`}
                 >
-                  Empowering Innovation through AI, Data Analysis, and
-                  Cutting-Edge Website Design
+                  Innovative AI and Software Solutions for the Future
                 </h3>
               </div>
               <img
